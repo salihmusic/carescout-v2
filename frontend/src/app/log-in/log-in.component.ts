@@ -33,7 +33,9 @@ export class LogInComponent implements OnInit {
     };
     this.loginService.login(loginCredentials).subscribe((res) => {
       if (res) {
-        console.log('Success!');
+        this.loginService.getAllCredentials().subscribe((resp) => {
+          console.log(resp);
+        });
       }
     });
   }
